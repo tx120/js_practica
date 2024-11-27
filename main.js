@@ -1,16 +1,6 @@
 
-let userNameValidation = false
-do {
-    let nombreCliente = prompt("Por favor, ingrese su nombre")
-    if (nombreCliente) {
-        userNameValidation = true
-        alert("Bienvenido " + nombreCliente)
-    } else {
-        userNameValidation = false
-        alert("No ingreso un nombre")
-    }
-} while (userNameValidation == false)
 
+//función bucle tienda
 function tienda() {
     alert("Bienvenido a la tienda")
     let check;
@@ -59,6 +49,7 @@ function tienda() {
     } while (check == false)
 };
 
+//función bucle servicios 
 function servicios() {
     alert("Bienvenido a Servicios")
     let check;
@@ -98,8 +89,24 @@ function servicios() {
     } while (check == false)
 
 };
-
-let control;
+// función cliente
+function askCliente(){
+    let userNameValidation = false
+    do {
+        let nombreCliente = prompt("Por favor, ingrese su nombre")
+        if (nombreCliente) {
+            userNameValidation = true
+            alert("Bienvenido " + nombreCliente)
+            selectStore(userNameValidation);
+        } else {
+            userNameValidation = false
+            alert("No ingreso un nombre")
+        }
+    } while (userNameValidation == false)
+}
+// bucle selector de store
+function selectStore(userNameValidation){
+    let control;
 do {
     if (userNameValidation == true) {
         let opciones = prompt("Elija 1 para proceder a la tienda o 2 para ver los servicios")
@@ -122,3 +129,7 @@ do {
 
 } while (control == false);
 
+}
+// llamado a askClient
+
+askCliente();
